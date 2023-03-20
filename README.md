@@ -8,3 +8,6 @@
 | `getData.sh `     | contrust API call, raw *curl* call| 8 |
 | `Cleaning.py `     | change data types, *join* databases     |   25 |
 | `viz.py` | interactive choropleth population      |    59 |
+
+
+

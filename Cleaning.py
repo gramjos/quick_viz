@@ -8,11 +8,10 @@ df.columns=df.iloc[0]
 df=df.drop([0], axis=0) # drop that copied from label row
 
 newCols=pd.Series([i.split(', ') for i in df["NAME"]])
-states=pd.Series([s for c,s in newCols])
-counties=pd.Series([c for c,s in newCols])
-
-df_col = pd.DataFrame(data={'states':states,'county':counties})
-
+df_col = pd.DataFrame(data={
+    'states':pd.Series([s for c,s in newCols]),
+    'county':pd.Series([c for c,s in newCols]),
+    })
 # standardize indexes b/c .join() 
 df=df.set_index(pd.Index([i for i in range(0,len(df))]))
 

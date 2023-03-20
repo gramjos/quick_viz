@@ -20,6 +20,7 @@ pop =pop[pop['state_no']==17]
 d=gdf.merge(pop, how='left', left_on='COUNTYFP',right_on='County_no')
 
 d=d[['NAME','COUNTYFP','Population','geometry']]
+d.to_file('county_with_pop.geojson', driver='GeoJSON')
 
 geocoder = Nominatim(user_agent='http')
 b=geocoder.geocode('Bloomington,IL')
