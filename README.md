@@ -9,5 +9,5 @@
 | `Cleaning.py `  | change data types, *join* databases  |   25           |
 | `viz.py`        |  interactive choropleth population   |    59          |
 
-
+# TODO Remove top 1..n outliers for a given range. Get user input to specify n
 
