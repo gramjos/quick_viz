@@ -18,5 +18,6 @@ $ ./driver.sh
 ```
 # TODO 
     - Remove top 1..n outliers for a given range. Get user input to specify n. As of now the viz not meaningful (for index.html)
+    - for the outlier exlcuded map show a floating histogram and a bar chart of the excluded top N as well bar chart columns for the max, mean, median, and min of the chorepleth data (in the top N bar chart as well)
     - data more data fields
 
