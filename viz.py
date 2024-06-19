@@ -1,10 +1,13 @@
-#!/Users/g_joss/opt/anaconda3/envs/the_geo_env/bin/python3.10
+#!/Users/g_joss/anaconda3/envs/geo_realm/bin/python
 
 import geopandas as gp
 import folium as fol
 from branca.colormap import linear
 import pandas as pd
 from geopy.geocoders import Nominatim
+import geopy
+#from geopy.geocoders import options
+#from geopy import geocoder
 import numpy as np
 
 gdf = gp.read_file('il_counties_shp/il_by_county.shp')
@@ -22,8 +25,9 @@ d=gdf.merge(pop, how='left', left_on='COUNTYFP',right_on='County_no')
 d=d[['NAME','COUNTYFP','Population','geometry']]
 d.to_file('county_with_pop.geojson', driver='GeoJSON')
 
-geocoder = Nominatim(user_agent='http')
-b=geocoder.geocode('Bloomington,IL')
+geopy.geocoders.options.default_user_agent = "my-application"
+gc=Nominatim(user_agent="my-app")
+b=gc.geocode('Bloomington,IL')
 x,y=b.latitude,b.longitude
 
 m = fol.Map(location=[x,y], zoom_start=6.25)
