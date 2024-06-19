@@ -25,7 +25,7 @@ d=gdf.merge(pop, how='left', left_on='COUNTYFP',right_on='County_no')
 d=d[['NAME','COUNTYFP','Population','geometry']]
 d.to_file('county_with_pop.geojson', driver='GeoJSON')
 
-geopy.geocoders.options.default_user_agent = "my-application"
+#geopy.geocoders.options.default_user_agent = "my-application"
 gc=Nominatim(user_agent="my-app")
 b=gc.geocode('Bloomington,IL')
 x,y=b.latitude,b.longitude
